@@ -54,6 +54,9 @@ API VKMix
 		except json.JSONDecodeError:
 			raise VkMixApiError("not json"+resp)
 		
+		if "error" in j and not "response" in j:
+			raise VkMixApiError(j["error"])
+		
 		return j["response"]
 	
 	def createTask(self, **kw):
