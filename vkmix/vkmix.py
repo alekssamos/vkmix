@@ -30,16 +30,15 @@ API VKMix
 			raise ValueError("method GET or POST")
 		
 		kw.update({"api_token": self.api_token})
+		data.update(kw)
 		
 		if method == "get":
 			hndlr = self.s.get
-			uri = uri + "?" + urllib.parse.urlencode(kw)
+			uri = uri + "?" + urllib.parse.urlencode(data)
 			data = {}
 		
 		if method == "post":
 			hndlr = self.s.post
-			if(len(kw) > 0):
-				data = kw
 		
 		try:
 			resp = hndlr(self.url+uri, data = data, headers = headers, allow_redirects = False).content.decode("utf8")
