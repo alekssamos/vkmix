@@ -7,67 +7,67 @@ import requests, urllib.parse, json
 
 
 class VkMixException(Exception):
-    pass
+	pass
 
 
 class VkMixApiError(VkMixException):
-    pass
+	pass
 
 
 class VkMix:
-    """API для ботов
+	"""API для ботов
 API VKMix
 Мы предоставляем открытый для всех разработчиков доступ к созданию заданий в нашей системе.
 Взаимодействие с API"""
 
-    s = requests.session()
-    ua = r"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0"
-    s.headers = {"User-Agent": ua, "X-Requested-With": "XMLHttpRequest"}
-    api_token = ""
-    url = "https://vkmix.com/api/2/"
+	s = requests.session()
+	ua = r"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0"
+	s.headers = {"User-Agent": ua, "X-Requested-With": "XMLHttpRequest"}
+	api_token = ""
+	url = "https://vkmix.com/api/2/"
 
-    def __init__(self, api_token):
-        "Авторизация"
-        self.api_token = api_token
+	def __init__(self, api_token):
+		"Авторизация"
+		self.api_token = api_token
 
-    def _request(self, uri, method="get", data={}, headers={}, **kw):
-        method = method.lower()
-        if method not in ["get", "post"]:
-            raise ValueError("method GET or POST")
+	def _request(self, uri, method="get", data={}, headers={}, **kw):
+		method = method.lower()
+		if method not in ["get", "post"]:
+			raise ValueError("method GET or POST")
 
-        kw.update({"api_token": self.api_token})
-        data.update(kw)
+		kw.update({"api_token": self.api_token})
+		data.update(kw)
 
-        if method == "get":
-            hndlr = self.s.get
-            uri = uri + "?" + urllib.parse.urlencode(data)
-            data = {}
+		if method == "get":
+			hndlr = self.s.get
+			uri = uri + "?" + urllib.parse.urlencode(data)
+			data = {}
 
-        if method == "post":
-            hndlr = self.s.post
+		if method == "post":
+			hndlr = self.s.post
 
-        try:
-            resp = hndlr(
-                self.url + uri, data=data, headers=headers, allow_redirects=False
-            ).content.decode("utf8")
-        except:
-            raise
+		try:
+			resp = hndlr(
+				self.url + uri, data=data, headers=headers, allow_redirects=False
+			).content.decode("utf8")
+		except:
+			raise
 
-        if resp == "":
-            raise VkMixApiError("empty response")
+		if resp == "":
+			raise VkMixApiError("empty response")
 
-        try:
-            j = json.loads(resp)
-        except json.JSONDecodeError:
-            raise VkMixApiError("not json" + resp)
+		try:
+			j = json.loads(resp)
+		except json.JSONDecodeError:
+			raise VkMixApiError("not json" + resp)
 
-        if "error" in j and not "response" in j:
-            raise VkMixApiError(j["error"])
+		if "error" in j and not "response" in j:
+			raise VkMixApiError(j["error"])
 
-        return j["response"]
+		return j["response"]
 
-    def createTask(self, **kw):
-        """Добавление нового задания
+	def createTask(self, **kw):
+		"""Добавление нового задания
 
 Параметры
 network
@@ -111,10 +111,10 @@ hourly_limit
 Результат
 Метод возвращает ID созданного задания."""
 
-        return self._request("createTask", method="post", data=kw)
+		return self._request("createTask", method="post", data=kw)
 
-    def getTasks(self, ids="", count=100, offset=0):
-        """Получение списка заданий
+	def getTasks(self, ids="", count=100, offset=0):
+		"""Получение списка заданий
 
 Параметры
 ids
@@ -129,12 +129,12 @@ offset
 Результат
 Метод возвращает список заданий."""
 
-        return self._request("getTasks", ids=ids, count=count, offset=offset)
+		return self._request("getTasks", ids=ids, count=count, offset=offset)
 
-    def getBalance(self):
-        """Получение текущего баланса аккаунта
+	def getBalance(self):
+		"""Получение текущего баланса аккаунта
 
 Результат
 Метод возвращает баланс аккаунта."""
 
-        return self._request("getBalance")
+		return self._request("getBalance")
