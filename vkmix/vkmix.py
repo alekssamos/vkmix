@@ -7,10 +7,20 @@ import requests, urllib.parse, json
 
 
 class VkMixException(Exception):
+	"""[summary]
+
+	Args:
+		Exception ([type]): [description]
+	"""
 	pass
 
 
 class VkMixApiError(VkMixException):
+	"""[summary]
+
+	Args:
+		VkMixException ([type]): [description]
+	"""
 	pass
 
 
