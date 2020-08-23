@@ -43,7 +43,7 @@ class TestVkMixCreateTask(unittest.TestCase):
                 hourly_limit = 5,
                 amount = 5
             )
-            self.assertEqual(responses.assert_call_count("https://vkmix.com/api/2/createTask", 1), True)
+            self.assertEqual(m.assert_call_count("https://vkmix.com/api/2/createTask", 1), True)
             self.assertIn("id", data)
             self.assertEqual(data["success"], 1)
             self.assertEqual(data["points"], 50)
