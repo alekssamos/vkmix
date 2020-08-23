@@ -24,12 +24,12 @@ print("Получить все задания на аккаунте: ", vkm.getT
 ## Runing tests
 ```bash
 git clone https://github.com/alekssamos/vkmix.git
-
 cd vkmix
 python3 -m pip install -r requirements-dev.txt
 
 python3 -m unittest
 ```
+
 output:
  ```
 ....
