@@ -21,8 +21,10 @@ print("Создано задание: ID ", task["id"])
 
 print("Получить все задания на аккаунте: ", vkm.getTasks())
 ```
-### Runing tests
+## Runing tests
 ```bash
+git clone https://github.com/alekssamos/vkmix.git
+
 cd vkmix
 python3 -m pip install -r requirements-dev.txt
 
@@ -37,8 +39,9 @@ Ran 4 tests in 0.014s
 OK
 
 ```
-### Сборка
+## Сборка
 ```bash
+git clone https://github.com/alekssamos/vkmix.git
 cd vkmix
 
 python3 -m pip install --user --upgrade setuptools wheel
