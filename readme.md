@@ -1,6 +1,6 @@
 Python wrapper for [vkmix.com API](https://vkmix.com/settings/api). 
 ## Установка
-`pip install git+https://github.com/alekssamos/vkmix.git`
+`python3 -m pip install git+https://github.com/alekssamos/vkmix.git`
 ### Использование
 ```python3
 from vkmix import VkMix
@@ -24,7 +24,7 @@ print("Получить все задания на аккаунте: ", vkm.getT
 ### Runing tests
 ```bash
 cd vkmix
-pip install -r requirements-dev.txt
+python3 -m pip install -r requirements-dev.txt
 
 python3 -m unittest
 ```
