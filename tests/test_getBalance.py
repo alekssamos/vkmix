@@ -4,7 +4,7 @@ import urllib.parse
 import unittest
 from vkmix import VkMix
 
-class TestVkMix(unittest.TestCase):
+class TestVkMixGetBalance(unittest.TestCase):
     def response_callback(self, resp):
         resp.callback_processed = True
         args = {}
@@ -13,6 +13,7 @@ class TestVkMix(unittest.TestCase):
         except AttributeError: pass
         except KeyError: pass
         self.assertIn("api_token", args)
+        self.assertEqual(args["api_token"][0], "mykey")
         return resp
 
     def test_getBalance(self):

@@ -25,10 +25,16 @@ class VkMixApiError(VkMixException):
 
 
 class VkMix:
-	"""API для ботов
-API VKMix
+	"""API для ботов API VKMix
 Мы предоставляем открытый для всех разработчиков доступ к созданию заданий в нашей системе.
-Взаимодействие с API"""
+
+Взаимодействие с API
+Всем методам необходимо передавать токен авторизации параметром api_token}.
+Успешный результат в виде
+{response: результат работы метода}
+Ошибки:
+{error: тип ошибки}
+Список доступных методов"""
 
 	s = requests.session()
 	ua = r"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0"
@@ -76,6 +82,15 @@ API VKMix
 
 		return j["response"]
 
+	def getServices(self):
+		"""getServices
+
+Получение списка сервисов
+Результат
+Метод возвращает список сервисов для создания заданий"""
+		
+		return self._request("getServices")
+	
 	def createTask(self, **kw):
 		"""Добавление нового задания
 
