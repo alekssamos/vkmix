@@ -6,4 +6,4 @@ include tox.ini
 include requirements.txt
 include requirements-dev.txt
 include runtime.txt
-recursive-include vkmix/*.py
+include vkmix/*.py
