@@ -1,7 +1,9 @@
 Python wrapper for [vkmix.com API](https://vkmix.com/settings/api). 
 ## Installing
 `python3 -m pip install git+https://github.com/alekssamos/vkmix.git`
+
 or
+
 `python3 -m pip install vkmix`
 ### Using
 ```python3
