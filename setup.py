@@ -8,5 +8,6 @@ setup(
     author_email="aleks-samos@yandex.ru",
     url="https://github.com/alekssamos/vkmix/",
     packages=find_packages(),
+    include_package_data=True,
     long_description=open(join(dirname(__file__), "readme.md"), encoding="UTF8").read(),
 )
