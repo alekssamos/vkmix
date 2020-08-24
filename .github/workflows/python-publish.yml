@@ -3,11 +3,11 @@
 
 name: Upload Python Package
 
-on: workflow_dispatch
-
-on: push
-
 on:
+  workflow_dispatch:
+  
+  push:
+  
   release:
     types: [created]
 
