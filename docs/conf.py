@@ -67,3 +67,4 @@ html_show_copyright = False
 html_favicon = '_static/favicon.ico'
 navigation_with_keys = True
 autodoc = True
+master_doc = 'index'
