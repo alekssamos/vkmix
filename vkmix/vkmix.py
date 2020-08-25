@@ -1,6 +1,8 @@
 """
+
 | Библиотека для сервиса
-https://vkmix.com/settings/api
+| https://vkmix.com/settings/api
+
 """
 
 import json
