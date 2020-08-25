@@ -94,7 +94,7 @@ class VkMix():
 	def createTask(self, **kw) -> dict:
 		"""Добавление нового задания
 
-:param network: Социальная сеть задания. Укажите одно из значений:
+:param network: Социальная сеть задания. Укажите одно из значений: \
 
 * vk - ВКонтакте
 * instagram - Инстаграм
@@ -105,7 +105,7 @@ class VkMix():
 
 :type network: str
 
-:param section: Тип задания. Для каждой социальной сети доступны свои типы:
+:param section: Тип задания. Для каждой социальной сети доступны свои типы: \
 
 * vk: likes, reposts, comments, friends, groups, polls
 * instagram: likes, subscribers, comments, comments_likes
