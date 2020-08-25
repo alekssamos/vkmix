@@ -23,10 +23,15 @@ class VkMix():
 	"""API для ботов API VKMix
 
 | Мы предоставляем открытый для всех разработчиков доступ к созданию заданий в
-нашей системе.
+| нашей системе.
 
 | Взаимодействие с API
 | Всем методам необходимо передавать токен авторизации параметром `api_token`.
+
+Авторизация
+
+:param api_token: Ваш ключ API
+:type api_token: str
 
 :raises VkMixApiError: Тип ошибки
 """
@@ -38,11 +43,6 @@ class VkMix():
 	url: str = "https://vkmix.com/api/2/"
 
 	def __init__(self, api_token: str) -> None:
-		"""Авторизация
-
-		:param api_token: Ваш ключ API
-		:type api_token: str
-		"""
 		self.api_token = api_token
 
 	def _request(self, uri: str, method: str = "get", data: dict = {}, headers: dict = {}, **kw) -> dict:
