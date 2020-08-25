@@ -1,4 +1,6 @@
 Python wrapper for [vkmix.com API](https://vkmix.com/settings/api). 
+
+[Документация](https://vkmix.readthedocs.io/)
 ## Installing
 `python3 -m pip install git+https://github.com/alekssamos/vkmix.git`
 
@@ -34,14 +36,4 @@ python3 -m pip install -r requirements-dev.txt
 python3 -m unittest
 # or
 python3 -m tox
-```
-## Build
-```bash
-git clone https://github.com/alekssamos/vkmix.git
-cd vkmix
-
-python3 -m pip install --user --upgrade setuptools wheel
-
-python3 setup.py build
-python3 setup.py sdist bdist_wheel
 ```
