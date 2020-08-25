@@ -1,9 +1,13 @@
 from setuptools import setup, find_packages
 from os.path import join, dirname
+import sys
+if sys.version_info[0] != 3 or sys.version_info[1] < 6:
+	print("This script requires Python >= 3.6")
+	exit(1)
 
 setup(
     name="vkmix",
-    version="1.2",
+    version="1.3",
     author="alekssamos",
     author_email="aleks-samos@yandex.ru",
     url="https://github.com/alekssamos/vkmix/",
