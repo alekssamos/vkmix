@@ -36,6 +36,9 @@ class VkMix():
 :type api_token: str
 
 :raises VkMixApiError: Тип ошибки
+
+>>> vkm = VkMix("MYKEY")
+
 """
 
 	s: any = requests.session()
@@ -87,6 +90,11 @@ class VkMix():
 
 :return: Метод возвращает список сервисов для создания заданий
 :rtype: list
+
+>>> vkm.getServices()["instagram"][3]
+{'id': 6, 'name_ru': 'Подписчики качественные', 'description_ru': 'Боты с постами и подписчиками, возможны списания', 'p
+oints_min': 4, 'points_max': 6, 'network': 'instagram', 'type': 'subscribers'}
+
 """
 
 		return self._request("getServices")
@@ -139,25 +147,42 @@ class VkMix():
 
 :return: Метод возвращает ID созданного задания.
 :rtype: dict
+
+>>> task = vkm.createTask(
+... network = "vk",
+... section = "likes",
+... link = "https://vk.com/wall-139740824_2687166",
+... count = 10,
+... hourly_limit = 5,
+... amount = 5
+... )
+>>>
+>>> task["id"]
+30728434
+
 """
 
 		return self._request("createTask", method="post", data=kw)
 
-	def getTasks(self, ids: list = [], count: int = 100, offset: int = 0) -> list:
+	def getTasks(self, ids: list = [], count: int = 100, offset: int = 0) -> dict:
 		"""Получение списка заданий
 
-		:param ids: Id заданий. Если не передан - вернёт все задания, defaults to []
-		:type ids: list, optional
+:param ids: Id заданий. Если не передан - вернёт все задания, defaults to []
+:type ids: list, optional
 
-		:param count: Количество заданий, которые необходимо вернуть. Не более 100, defaults to 100
-		:type count: int, optional
+:param count: Количество заданий, которые необходимо вернуть. Не более 100, defaults to 100
+:type count: int, optional
 
-		:param offset: Смещение необходимое для выборки определенного подмножества, defaults to 0
-		:type offset: int, optional
+:param offset: Смещение необходимое для выборки определенного подмножества, defaults to 0
+:type offset: int, optional
 
-		:return: Метод возвращает список заданий
-		:rtype: list
-		"""
+:return: Метод возвращает items со списком заданий и count с их количеством
+:rtype: dict
+
+>>> vkm.getTasks()["items"][0]
+{'id': 30728434, 'done_count': 12, 'ordered_count': 10, 'amount': 5, 'title': '', 'status': 'success', 'source': 'api', 'network': 'vk', 'section': 'likes', 'url': 'https://vk.com/wall-139740824_2687166'}
+
+"""
 
 		return self._request("getTasks",
 			ids=",".join(list(map(str, ids))),
@@ -168,6 +193,10 @@ class VkMix():
 
 :return: Метод возвращает баланс аккаунта
 :rtype: float
+
+>>> vkm.getBalance()
+1225
+
 """
 
 		return self._request("getBalance")

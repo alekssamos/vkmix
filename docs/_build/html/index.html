@@ -115,6 +115,19 @@
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">task</span> <span class="o">=</span> <span class="n">vkm</span><span class="o">.</span><span class="n">createTask</span><span class="p">(</span>
+<span class="gp">... </span><span class="n">network</span> <span class="o">=</span> <span class="s2">&quot;vk&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">section</span> <span class="o">=</span> <span class="s2">&quot;likes&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;https://vk.com/wall-139740824_2687166&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">hourly_limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">amount</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+<span class="go">30728434</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -129,6 +142,10 @@
 <dd class="field-even"><p>float</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vkm</span><span class="o">.</span><span class="n">getBalance</span><span class="p">()</span>
+<span class="go">1225</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -147,11 +164,16 @@
 <dd class="field-even"><p>list</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vkm</span><span class="o">.</span><span class="n">getServices</span><span class="p">()[</span><span class="s2">&quot;instagram&quot;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">{&#39;id&#39;: 6, &#39;name_ru&#39;: &#39;Подписчики качественные&#39;, &#39;description_ru&#39;: &#39;Боты с постами и подписчиками, возможны списания&#39;, &#39;p</span>
+<span class="go">oints_min&#39;: 4, &#39;points_max&#39;: 6, &#39;network&#39;: &#39;instagram&#39;, &#39;type&#39;: &#39;subscribers&#39;}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vkmix.VkMix.getTasks">
-<code class="sig-name descname">getTasks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ids</span><span class="p">:</span> <span class="n">list</span> <span class="o">=</span> <span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">100</span></em>, <em class="sig-param"><span class="n">offset</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span> &#x2192; list<a class="headerlink" href="#vkmix.VkMix.getTasks" title="Ссылка на это определение">¶</a></dt>
+<code class="sig-name descname">getTasks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ids</span><span class="p">:</span> <span class="n">list</span> <span class="o">=</span> <span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">100</span></em>, <em class="sig-param"><span class="n">offset</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#vkmix.VkMix.getTasks" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Получение списка заданий</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры</dt>
@@ -162,12 +184,16 @@
 </ul>
 </dd>
 <dt class="field-even">Результат</dt>
-<dd class="field-even"><p>Метод возвращает список заданий</p>
+<dd class="field-even"><p>Метод возвращает items со списком заданий и count с их количеством</p>
 </dd>
 <dt class="field-odd">Тип результата</dt>
-<dd class="field-odd"><p>list</p>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vkm</span><span class="o">.</span><span class="n">getTasks</span><span class="p">()[</span><span class="s2">&quot;items&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">{&#39;id&#39;: 30728434, &#39;done_count&#39;: 12, &#39;ordered_count&#39;: 10, &#39;amount&#39;: 5, &#39;title&#39;: &#39;&#39;, &#39;status&#39;: &#39;success&#39;, &#39;source&#39;: &#39;api&#39;, &#39;network&#39;: &#39;vk&#39;, &#39;section&#39;: &#39;likes&#39;, &#39;url&#39;: &#39;https://vk.com/wall-139740824_2687166&#39;}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
