@@ -7,7 +7,7 @@ if sys.version_info[0] != 3 or sys.version_info[1] < 6:
 
 setup(
     name="vkmix",
-    version="1.4",
+    version="1.5",
     author="alekssamos",
     author_email="aleks-samos@yandex.ru",
     url="https://github.com/alekssamos/vkmix/",
