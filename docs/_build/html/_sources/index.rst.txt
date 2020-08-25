@@ -12,8 +12,6 @@ Welcome to vkmix's documentation!
 
 .. automodule:: vkmix
    :members:
-.. autoclass:: VkMix
-   :members:
 
 Indices and tables
 ==================
