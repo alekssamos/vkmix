@@ -21,11 +21,15 @@
 ===========
 ``from vkmix import VkMix``
 
+=============
+Использование
+=============
+
 .. automodule:: vkmix
    :members:
 
-Indices and tables
-==================
+Содержание
+==========
 
 * :ref:`genindex`
 * :ref:`modindex`
