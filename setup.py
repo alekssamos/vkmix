@@ -3,7 +3,7 @@ from os.path import join, dirname
 
 setup(
     name="vkmix",
-    version="1.1",
+    version="1.2",
     author="alekssamos",
     author_email="aleks-samos@yandex.ru",
     url="https://github.com/alekssamos/vkmix/",
