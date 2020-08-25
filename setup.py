@@ -14,5 +14,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description_content_type="text/markdown",
-    long_description=open(join(dirname(__file__), "README.MD"), encoding="UTF8").read(),
+    long_description=open(join(dirname(__file__), "README.md"), encoding="UTF8").read(),
 )
